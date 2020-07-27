@@ -37,48 +37,24 @@
                               <div onclick="getBtnValue('3')" id="3" class="button">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div onclick="backspaceBtn()" id="<" class="button"><</div>
+                                <div onclick="backspaceBtn(true)" class="button"><</div>
                                 <div onclick="getBtnValue('0')" id="0" class="button">0</div>
-                                <div onclick="backspaceBtn()" id="C" class="button">C</div>
+                                <div onclick="backspaceBtn(false)" class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <button onclick="validatePin()" type="submit" id="submit-btn" class="submit-btn">Submit</button>
+                                <p class="action-left"><span id="try-left">3</span> try left</p>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="cross" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="tick" class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
     
-    <script>
-
-        function generatePin() {
-            let randomPin = Math.random()* 10000;
-            randomPin = Math.ceil(randomPin)
-            if (randomPin > 1000) {
-                document.getElementById('pinDisplay').value = randomPin;
-            } else {
-                generatePin();
-            }
-        }
-
-        function getBtnValue(id) {
-            const btnValue = document.getElementById(id).innerText;
-            document.getElementById('submitPinDisplay').value += btnValue;
-        }
-
-        function backspaceBtn() {
-            const display = document.getElementById('submitPinDisplay').value;
-            const newDisplay = display.slice(0, -1);
-            document.getElementById('submitPinDisplay').value = newDisplay;
-            }
-
-
-    </script>
+<script src="./script.js"></script>
 </body>
 </html>
