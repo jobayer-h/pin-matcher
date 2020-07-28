@@ -7,6 +7,8 @@ function generatePin() {
     } else {
         generatePin();
     }
+    document.getElementById('try-left').innerText = 3;
+    document.getElementById('submit-btn').disabled = false;
 }
 
 // pin input button function
